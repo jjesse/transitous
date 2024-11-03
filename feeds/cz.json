@@ -11,7 +11,7 @@
     ],
     "sources": [
         {
-            "name": "aggregated",
+            "name": "CZPTT",
             "type": "http",
             "url": "https://data.jr.ggu.cz/results/latest/CZPTT_GTFS.zip",
             "fix": true

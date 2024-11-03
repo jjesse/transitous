@@ -3,6 +3,10 @@
         {
             "name": "Jonah Brüchert",
             "github": "jbruechert"
+        },
+        {
+            "name": "Wojciech Kulesza",
+            "github": "wkulesza"
         }
     ],
     "sources": [
@@ -47,11 +51,6 @@
             "transitland-atlas-id": "f-u3ky-bydgoszcz"
         },
         {
-            "name": "Włocławek",
-            "type": "transitland-atlas",
-            "transitland-atlas-id": "f-u3me-wloclawek"
-        },
-        {
             "name": "Toruń",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u3mj-torun"
@@ -59,7 +58,8 @@
         {
             "name": "Kielce",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-u3n9-kielce"
+            "transitland-atlas-id": "f-u3n9-kielce",
+            "fix": true
         },
         {
             "name": "Radom",
@@ -100,6 +100,22 @@
             "name": "Lublin",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u905-lublin"
+        },
+        {
+            "name": "Gdańsk",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-ztm~gdansk",
+            "fix": true
+        },
+        {
+            "name": "Elbląg",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3tu-elblag"
+        },
+        {
+            "name": "Poznań",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3k4-miejskieprzedsiębiorstwokomunikacyjnespzoowpoznaniu~kórni"
         }
     ]
 }

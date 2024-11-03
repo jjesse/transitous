@@ -31,6 +31,8 @@ class Source:
     skip: bool = False
     skip_reason: str = ""
     function: Optional[str] = None
+    drop_too_fast_trips: bool = True
+    drop_shapes: bool = False
 
     def __init__(self, parsed: Optional[dict] = None):
         self.license = License()
@@ -54,6 +56,10 @@ class Source:
                 self.skip_reason = parsed["skip-reason"]
             if "function" in parsed:
                 self.function = parsed["function"]
+            if "drop-too-fast-trips" in parsed:
+                self.drop_too_fast_trips = parsed["drop-too-fast-trips"]
+            if "drop-shapes" in parsed:
+                self.drop_shapes = parsed["drop-shapes"]
 
 
 class HttpOptions:

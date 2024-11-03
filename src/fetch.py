@@ -7,6 +7,7 @@ from metadata import *
 from pathlib import Path
 from datetime import datetime, timezone
 from utils import eprint
+from zipfile import ZipFile
 
 import email.utils
 import requests
@@ -17,6 +18,8 @@ import os
 import subprocess
 import shutil
 import region_helpers
+import io
+import hashlib
 
 
 def validate_source_name(name: str):
@@ -57,8 +60,9 @@ class Fetcher:
                 }
 
                 headers = source.options.headers.copy()
-                headers["user-agent"] \
-                    = "Transitous GTFS Fetcher (https://transitous.org)"
+                if not "user-agent" in headers:
+                    headers["user-agent"] \
+                        = "Transitous GTFS Fetcher (https://transitous.org)"
 
                 # Detect last modification time of local file
                 last_modified = None
@@ -120,8 +124,32 @@ class Fetcher:
                     last_modified_server = email.utils.parsedate_to_datetime(
                         server_headers["last-modified"])
 
+                if "#" in download_url:
+                    # if URL contains #, treat the path after # as an embedded ZIP file
+                    sub_path = download_url.partition("#")[2]
+                    zipfile = ZipFile(io.BytesIO(response.content))
+
+                    content: bytes = zipfile.read(sub_path)
+                else:
+                    content: bytes = response.content
+
+                # Only write file if the new version changed. Helps to at least
+                # skip postprocessing with servers that don't send a
+                # last-modified header.
+                if dest_path.exists() and not last_modified_server:
+                    h = hashlib.new("sha256")
+                    h.update(content)
+                    digest = h.hexdigest()
+
+                    with open(dest_path, "rb") as tfp:
+                        new_digest = hashlib.file_digest(tfp, "sha256") \
+                            .hexdigest()
+
+                    if digest == new_digest:
+                        return False
+
                 with open(dest_path, "wb") as dest:
-                    dest.write(response.content)
+                    dest.write(content)
 
                 # Set server mtime on local file
                 if last_modified_server:
@@ -145,12 +173,17 @@ class Fetcher:
             subprocess.check_call(["./src/fix-csv-quotes.py", temp_file])
 
         command = ["gtfsclean", str(temp_file),
+                   "--fix-zip",
                    "--check-null-coords",
                    "--empty-agency-url-repl", "https://transitous.org",
-                   "--remove-red-routes", "--remove-red-services", "--remove-red-stops", "--remove-red-trips", "--red-trips-fuzzy",
+                   "--remove-red-routes", "--remove-red-services", "--remove-red-stops",
                    "--output", str(temp_file)]
         if source.fix:
             command.append("--fix")
+        if source.drop_too_fast_trips:
+            command.append("--drop-too-fast-trips")
+        if source.drop_shapes:
+            command.append("--drop-shapes")
 
         subprocess.check_call(command)
 

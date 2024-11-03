@@ -3,9 +3,18 @@
         {
             "name": "Jonathan Jesse",
             "github": "jjesse"
+        },
+        {
+	    "name": "John Scott",
+            "github": "jscott0"
         }
     ],
     "sources": [
+        {
+            "name": "Bloomington-Transit",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-dnfq-bloomingtontransit"
+        },
         {
             "name": "CityBus-of-Greater-Lafayette-Indiana",
             "type": "transitland-atlas",
@@ -20,6 +29,11 @@
             "name": "IndyGo",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-dp4d-indygo"
+        },
+        {
+            "name": "IndyGo",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-indygo~rt"
         },
         {
             "name": "Indiana-County-Transit-Authority",

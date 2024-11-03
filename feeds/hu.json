@@ -14,22 +14,19 @@
                 "headers": {
                     "Authorization": "Basic YXJvbmt2aEBnbWFpbC5jb206M09jOHpNRFc3c3RCQ2ljVg=="
                 }
-            }
+            },
+            "drop-shapes": true
         },
         {
             "name": "volanbusz",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-volanbusz~hu"
+            "transitland-atlas-id": "f-volanbusz~hu",
+            "fix": true
         },
         {
             "name": "bkk",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u2m-bkk"
-        },
-        {
-            "name": "v-busz",
-            "type": "http",
-            "url": "https://www.vbusz.hu/gtfs"
         },
         {
             "name": "mkv",

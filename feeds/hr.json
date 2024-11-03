@@ -3,6 +3,10 @@
         {
             "name": "Volker Krause",
             "github": "vkrause"
+        },
+        {
+            "name": "Jonah Brüchert",
+            "github": "jbruechert"
         }
     ],
     "sources": [
@@ -13,6 +17,35 @@
             "license": {
                 "spdx-identifier": "CC0-1.0"
             }
+        },
+        {
+            "name": "zet",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u25k-zagrebačkielektričnitramvaj"
+        },
+        {
+            "name": "zet",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u25k-zagrebačkielektričnitramvaj~rt"
+        },
+        {
+            "name": "jl",
+            "type": "http",
+            "url": "https://b2b.promet-info.hr/dc/b2b.gtfs.jl",
+            "url-override": "https://jbb.ghsq.de/gtfs/hr-jl.gtfs.zip"
+        },
+        {
+            "name": "pulapromet",
+            "type": "http",
+            "url": "https://b2b.promet-info.hr/dc/b2b.gtfs.pulapromet",
+            "url-override": "https://jbb.ghsq.de/gtfs/hr-pulapromet.gtfs.zip"
+        },
+        {
+            "name": "osijekgpp",
+            "type": "http",
+            "url": "https://b2b.promet-info.hr/dc/b2b.gtfs.osijekgpp",
+            "url-override": "https://jbb.ghsq.de/gtfs/hr-osijekgpp.gtfs.zip",
+            "fix": true
         }
     ]
 }

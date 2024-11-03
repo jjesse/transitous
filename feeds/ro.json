@@ -1,0 +1,37 @@
+{
+    "maintainers": [
+        {
+            "name": "Jonah Brüchert",
+            "github": "jbruechert"
+        }
+    ],
+    "sources": [
+        {
+            "name": "railway",
+            "type": "http",
+            "url": "https://github.com/vasile/data.gov.ro-gtfs-exporter/archive/refs/heads/master.zip",
+            "license": {
+                "url": "https://github.com/vasile/data.gov.ro-gtfs-exporter"
+            },
+            "http-options": {
+                "fetch-interval-days": 7
+            },
+            "fix": true
+        },
+        {
+            "name": "bucuresti",
+            "type": "http",
+            "url": "https://s3.gtfs.pro/files/uran/improved-gtfs-bucuresti.zip"
+        },
+        {
+            "name": "tursib",
+            "type": "http",
+            "url": "https://s3.gtfs.pro/files/uran/improved-gtfs-tursib.zip"
+        },
+        {
+            "name": "constanța",
+            "type": "http",
+            "url": "https://external.gtfs.ro/constanta/CONSTANTA.zip"
+        }
+    ]
+}
