@@ -14,12 +14,21 @@
             "name": "CZPTT",
             "type": "http",
             "url": "https://data.jr.ggu.cz/results/latest/CZPTT_GTFS.zip",
+            "license": {
+                "spdx-identifier": "CC0-1.0"
+            },
             "fix": true
         },
         {
             "name": "PID",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u2f-pražskáintegrovanádoprava"
+        },
+        {
+            "name": "PID",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.golemio.cz/v2/vehiclepositions/gtfsrt/trip_updates.pb"
         },
         {
             "name": "IDS-JMK",
@@ -38,6 +47,19 @@
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u2u6-dpmo",
             "fix": true
+        },
+        {
+            "name": "Bean-Shuttle",
+            "type": "mobility-database",
+            "mdb-id": "mdb-2036"
+        },
+        {
+            "name": "PMDP",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-plzen",
+            "http-options": {
+                "fetch-interval-days": 1
+            }
         }
     ]
 }

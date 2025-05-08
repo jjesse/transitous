@@ -13,8 +13,7 @@
         {
             "name": "STM",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-f25d-socitdetransportdemontral",
-            "proxy": true
+            "transitland-atlas-id": "f-f25d-socitdetransportdemontral"
         },
         {
             "name": "STM",
@@ -179,6 +178,11 @@
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-societe~de~transport~de~trois-rivieres",
             "fix": true
+        },
+        {
+            "name": "Bixi-Montreal",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-bixi~montréal~montreal~gbfs"
         }
     ]
 }

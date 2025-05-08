@@ -13,7 +13,7 @@
 
 - name: Unpack MOTIS
   unarchive:
-    src: https://github.com/public-transport/transitous/releases/download/motis-v2.0.13/motis-v2.0.13.tar.bz2
+    src: https://github.com/public-transport/transitous/releases/download/motis-v2.0.34/motis-v2.0.34.tar.bz2
     dest: /opt/motis/
     remote_src: yes
 
@@ -51,13 +51,6 @@
   with_items:
     - motis-update-feeds.service
     - motis-update-feeds.timer
-
-- name: Enable motis-update-feeds service
-  systemd:
-    name: motis-update-feeds.service
-    enabled: true
-    masked: false
-    daemon_reload: true
 
 - name: Enable motis-update-feeds timer
   systemd:

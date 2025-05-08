@@ -1,13 +1,13 @@
 # SPDX-FileCopyrightText: 2024 Jonah Brüchert <jbb@kaidan.im>
 # SPDX-License-Identifier: CC0-1.0
 
-FROM docker.io/golang:1.22 as build
+FROM docker.io/golang:1.24 as build
 RUN GOPROXY=direct GOBIN=/usr/local/bin/ go install github.com/public-transport/gtfsclean@latest
 
 
 FROM docker.io/debian:bookworm-slim
 
-ARG MOTIS_VERSION=v2.0.17
+ARG MOTIS_VERSION=v2.0.34
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends git python3-requests python3-pycountry wget bzip2 rsync openssh-client python3-ruamel.yaml && \

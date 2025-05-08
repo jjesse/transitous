@@ -19,7 +19,7 @@ Free and open public transport routing.
 
 A community-run provider-neutral international public transport routing service.
 
-Using openly available GTFS/GTFS-RT/etc. feeds and FOSS routing engine we want to operate a
+Using openly available GTFS/GTFS-RT/GBFS/etc. feeds and FOSS routing engine we want to operate a
 routing service that:
 
 * focuses on the interest of the user rather than the public transport operators
@@ -66,9 +66,20 @@ The main attribute of a region is `sources`. It contains a list of feeds that sh
 
 ### Static feeds (timetable)
 
-Each source can either be of `type` `transitland-atlas` or `http`.
-A transitland-atlas source is a feed from [Transitland](https://www.transit.land/feeds), identified by its Onestop ID.
+Each source can either be of `type` `mobility-database`, `transitland-atlas` or `http`.
+Feeds from the [Mobility Database](https://mobilitydatabase.org/) can be referenced by the id in the URL on the website.
+Feeds from [Transitland](https://www.transit.land/feeds) (a different database of feeds), can be referenced by their Onestop ID.
 
+Mobility Database:
+```json
+{
+    "name": "<name to be used for the output filename, should not contain spaces>",
+    "type": "mobility-database",
+    "mdb-id": "mdb-<number>"
+}
+```
+
+Transitland:
 ```json
 {
     "name": "<name to be used for the output filename, should not contain spaces>",
@@ -77,7 +88,7 @@ A transitland-atlas source is a feed from [Transitland](https://www.transit.land
 }
 ```
 
-If the feed is not known in Transitland, a http source can be used instead.
+If the feed is not part of any existing database, a http source can be used instead.
 
 ```json
 {
@@ -98,6 +109,8 @@ If the feed contains invalid entries, you can try to add the `"fix": true` attri
 
 GTFS-RT feeds contain updates for a GTFS feed.
 In order to know which feed to apply the updates to, their name must match the name of the static timetable.
+Each source can either be of `type` `mobility-database`, `transitland-atlas` or `url`.
+In the case of the `url` type, the field `spec` needs to be set to `gtfs-rt`.
 
 This example applies the updates to the `lviv` feed:
 ```
@@ -115,6 +128,35 @@ This example applies the updates to the `lviv` feed:
     }
 ]
 ```
+
+### Shared Mobility feeds
+
+GBFS feeds contains realtime information like vehicle availability and characteristics for shared Mobility (e.g. Bikesharing).
+Each source can be of `type` `transitland-atlas` or `url`.
+In the case of the `url` type, the field `spec` needs to be set to `gbfs`.
+
+Feeds from [Transitland](https://www.transit.land/feeds) can be referenced by their Onestop ID.
+
+Transitland:
+```json
+{
+    "name": "<name of the feed>",
+    "type": "transitland-atlas",
+    "transitland-atlas-id": "<onestop id>"
+}
+```
+
+Url:
+```json
+{
+    "name": "<name of the feed>",
+    "type": "url",
+    "url": "https://<url of GBFS feed>",
+    "spec": "gbfs"
+}
+```
+
+The name needs to be unique in the file.
 
 ### Testing
 
@@ -146,18 +188,20 @@ Then you can fetch individual regions using
 
 There are all kinds of options that may be specified in a source:
 
-Option Name         | Description
-------------------- | ------------------------------------------------------------------------------------------------------------------------------------
-`type`              | `http`, `transitland-atlas` or `url`. Url sources are not downloaded, but passed to MOTIS as URL. This is used for realtime feeds.
-`spec`              | `gtfs` or `gtfs-rt`. `gtfs-rt` may only be used when `type` is `url`.
-`fix`               | Fix / drop fields that are not correct.
-`skip`              | Don't download or use this feed.
-`skip-reason`       | Reason for why this feed can't be used right now.
-`fix-csv-quotes`    | Try to fix GTFS files in which fields are improperly quoted. A symptom of this is if stop names start containing CSV.
-`license`           | Dictionary of license-related options
-`http-options`      | Dictionary of HTTP-related options
-`drop-shapes`       | Remove route shapes, use if the shapes are mostly wrong
-`drop-agency-names` | Removes a list of agencies. Can be used to avoid duplicates if the agency provides its own feed.
+Option Name            | Description
+---------------------- | ------------------------------------------------------------------------------------------------------------------------------------
+`type`                 | `http`, `mobility-database`, `transitland-atlas` or `url`. Url sources are not downloaded, but passed to MOTIS as URL. This is used for realtime feeds.
+`spec`                 | `gtfs` or `gtfs-rt`. `gtfs-rt` may only be used when `type` is `url`.
+`fix`                  | Fix / drop fields that are not correct.
+`skip`                 | Don't download or use this feed.
+`skip-reason`          | Reason for why this feed can't be used right now.
+`fix-csv-quotes`       | Try to fix GTFS files in which fields are improperly quoted. A symptom of this is if stop names start containing CSV.
+`license`              | Dictionary of license-related options
+`http-options`         | Dictionary of HTTP-related options
+`drop-shapes`          | Remove route shapes, use if the shapes are mostly wrong
+`drop-agency-names`    | Removes a list of agencies. Can be used to avoid duplicates if the agency provides its own feed.
+`url-override`         | Use a different url instead of the one in Transitland / Mobility Database, or use a custom mirror. For more details, see the section on caches.
+`display-name-options` | Specify which strings identifying a vehicle should be displayed to the user
 
 #### License Options
 
@@ -173,6 +217,26 @@ Option Name           | Description
 `headers`             | Dictionary of custom HTTP headers to send when checking for updates / downloading.
 `ignore-tls-errors`   | Ignore expired / invalid TLS certificate
 `fetch-interval-days` | Fetch this feed at most every `n` days. Useful if a server doesn't send `Last-Modified`, or to comply with terms of service.
+
+#### Display Name Options
+
+Option Name                 | Description
+--------------------------- | -----------------------------------------------------------------------------------------------------------------------------
+`copy-trip-names-matching`  | Regular expression specifying which values from `trip_short_name` should be displayed to the user.
+`keep-route-names-matching` | Regular expression specifying which values from `route_short_name` should not be replaced even though the regular expression on `trip_short_name` matches.
+`move-headsigns-matching`   | Regular expression specifying which values from `trip_headsign` should be moved to `route_short_name`. Mostly useful for SNCF.
+
+```json
+{
+    "name": "OEBB",
+    "type": "http",
+    "url": "https://data.mobilitaetsverbuende.at/api/public/v1/data-sets/66/2025/file",
+    "display-name-options": {
+        "copy-trip-names-matching": "((IC)|(ECB)|(EC)|(RJ)|(RJX)|(D)|(NJ)|(EN)|(CJX)|(ICE)|(IR)|(REX)|(R)|(ER)|(ATB)) \\d+",
+        "keep-route-names-matching": "((RE)|(RB)) \\d+"
+    }
+}
+```
 
 ### Common Patterns
 
@@ -191,6 +255,21 @@ This is useful for passing in things like headers with API keys.
     }
 }
 ```
+
+## Overview of the import pipeline
+The following pipeline runs on a daily basis to import new GTFS feed data.
+This image gives an overview of the steps executed in the data pipeline:
+<img src="pipeline.svg" alt="diagram visualizing the data import pipeline">
+
+## Caches
+
+Due to varying uptime of the feed publishers' servers, feeds that are part of a database like Transitland or the Mobility Database are cached.
+
+The fetching precedence is as follows:
+
+1. If set, the url in `url-override` is tried first
+2. The `url` is tried.
+3. In case of a feed from a database, a cache is used. The cache url depends on the database.
 
 ## Running a transitous instance locally
 
@@ -221,7 +300,7 @@ Now inside the container, you can download and post-process the feeds you want.
 ./src/fetch.py feeds/<region>.json
 ```
 
-If you want to download all of them instead, you can use `mkdir -p out && cd out && wget --mirror -l 1 --no-parent --no-directories --accept zip https://api.transitous.org/gtfs/` to download the postprocessed files from the Transitous server, or `./ci/fetch-feeds.py timer` to process them yourself. However, importing all feeds will take about half an hour even on powerful hardware.
+If you want to download all of them instead, you can use `mkdir -p out && cd out && wget --mirror -l 1 --no-parent --no-directories --accept gtfs.zip -e robots=off https://api.transitous.org/gtfs/` to download the postprocessed files from the Transitous server, or `./ci/fetch-feeds.py timer` to process them yourself. However, importing all feeds will take about half an hour even on powerful hardware.
 
 The `out/` directory should now contain a number of zip files.
 
@@ -258,3 +337,5 @@ motis server
 ```
 
 Once it's done, the motis web interface should be reachable on [localhost:8080](http://localhost:8080).
+
+

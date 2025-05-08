@@ -7,6 +7,7 @@ import json
 import metadata
 import sys
 import transitland
+import mobilitydatabase
 
 from ruamel.yaml import YAML
 from typing import Any
@@ -25,6 +26,7 @@ if __name__ == "__main__":
     feed_dir = Path("feeds/")
 
     atlas = transitland.Atlas.load(Path("transitland-atlas/"))
+    mdb = mobilitydatabase.Database.load()
 
     gtfs_feeds: list[dict] = []
     gtfsrt_feeds: list[dict] = []
@@ -45,6 +47,7 @@ if __name__ == "__main__":
             "datasets", before="Modified by generate-motis-config.py"
         )
         config["timetable"]["datasets"] = {}
+        config["gbfs"]["feeds"] = {}
 
         if feed == "":
             glob = "*.json"
@@ -67,9 +70,15 @@ if __name__ == "__main__":
 
                     match source:
                         case metadata.TransitlandSource():
-                            source = atlas.source_by_id(source)
-                            if not source:
+                            resolved_source = atlas.source_by_id(source)
+                            if not resolved_source:
                                 continue
+                            source = resolved_source
+                        case metadata.MobilityDatabaseSource():
+                            resolved_source = mdb.source_by_id(source)
+                            if not resolved_source:
+                                continue
+                            source = resolved_source
 
                     match source.spec:
                         case "gtfs":
@@ -104,6 +113,12 @@ if __name__ == "__main__":
 
                             config["timetable"]["datasets"][name]["rt"] \
                                 .append(rt_feed)
+
+                        case "gbfs" if isinstance(source, metadata.UrlSource):
+                            name = f"{region_name}-{source.name}"
+                            config["gbfs"]["feeds"][name] = {"url": source.url}
+                            if source.headers:
+                                config["gbfs"]["feeds"][name]["headers"] = source.headers
 
         with open("out/config.yml", "w") as fo:
             yaml.dump(config, fo)

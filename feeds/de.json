@@ -7,6 +7,10 @@
         {
             "name": "Robin Durner",
             "github": "traines-source"
+        },
+        {
+            "name": "Max Buchholz",
+            "github": "1Maxnet1"
         }
     ],
     "sources": [
@@ -18,7 +22,17 @@
                 "spdx-identifier": "CC-BY-4.0"
             },
             "fix": true,
-            "drop-agency-names": ["Berliner Verkehrsbetriebe", "S-Bahn Berlin GmbH", "Verkehrsgesellschaft Teltow-Fläming mbH", "Verkehrsbetriebe Oldenburger Land", "üstra Hannoversche Verkehrsbetriebe AG", "Braunschweiger Verkehrs-GmbH", "Kraftverkehrsgesellschaft mbH Braunschweig", "SWO Mobil GmbH", "FlixBus-de"],
+            "drop-agency-names": [
+                "Berliner Verkehrsbetriebe",
+                "S-Bahn Berlin GmbH",
+                "Verkehrsgesellschaft Teltow-Fläming mbH",
+                "Verkehrsbetriebe Oldenburger Land",
+                "üstra Hannoversche Verkehrsbetriebe AG",
+                "Braunschweiger Verkehrs-GmbH",
+                "Kraftverkehrsgesellschaft mbH Braunschweig",
+                "SWO Mobil GmbH",
+                "FlixBus-de"
+            ],
             "http-options": {
                 "fetch-interval-days": 2
             }
@@ -78,6 +92,107 @@
                 "spdx-identifier": "ODbL-1.0",
                 "url": "https://opendata.avv.de/current_GTFS/lizenz_und_readme.txt"
             }
+        },
+        {
+            "name": "RegioRadStuttgart",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-regioradstuttgart~stuttgart~gbfs"
+        },
+        {
+            "name": "CallaBike",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-call~a~bike~germany~gbfs"
+        },
+        {
+            "name": "KVV.nextbike",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-kvv~nextbike~karlsruhe~gbfs"
+        },
+        {
+            "name": "FreloFreiburg",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-frelo~freiburg~gbfs"
+        },
+        {
+            "name": "LastenVeloFreiburg",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-lastenvelo~freiburg~gbfs"
+        },
+        {
+            "name": "SAPWalldorf",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-sap~walldorf~gbfs"
+        },
+        {
+            "name": "EinfachMobil",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-einfachmobil~ortenaukreis~gbfs"
+        },
+        {
+            "name": "VRNnextbike",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-vrnnextbike~rhine~neckar~gbfs"
+        },
+        {
+            "name": "meinRad",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-meinrad~mainz~gbfs"
+        },
+        {
+            "name": "LimeFrankfurt",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-lime~frankfurt~gbfs"
+        },
+        {
+            "name": "NetxbikeFrankfurt",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-nextbike~frankfurt~gbfs"
+        },
+        {
+            "name": "DottFrankfurt",
+            "type": "url",
+            "url": "https://gbfs.api.ridedott.com/public/v2/frankfurt/gbfs.json",
+            "spec": "gbfs"
+        },
+        {
+            "name": "Deer",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-deer~germany~gbfs"
+        },
+        {
+            "name": "StadtmobilStuttgart",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-stadtmobil~stuttgart~gbfs"
+        },
+        {
+            "name": "StadtmobilKarlsruhe",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-stadtmobil~karlsruhe~gbfs"
+        },
+        {
+            "name": "StadtmobilRheinNeckar",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-stadtmobil~rhein~neckar~gbfs"
+        },
+        {
+            "name": "NaturenergieSharing",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-naturenergie~sharing~south~baden~gbfs"
+        },
+        {
+            "name": "TeilAutoNeckar-Alb",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-teilauto~neckar~alb~gbfs"
+        },
+        {
+            "name": "TeilAutoBiberach",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-teilauto~biberach~gbfs"
+        },
+        {
+            "name": "TeilAutoSchwäbischHall",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-teilauto~schwäbisch~hall~gbfs"
         }
     ]
 }

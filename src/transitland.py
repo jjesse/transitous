@@ -24,13 +24,15 @@ class Atlas:
 
         return atlas
 
-    def source_by_id(self, source: TransitlandSource) -> Union[Source, None]:
+    def source_by_id(self, source: TransitlandSource) -> Optional[Source]:
         result: Optional[Source] = None
         feed = self.by_id[source.transitland_atlas_id]
         if "static_current" in feed["urls"]:
             result = HttpSource()
             result.name = source.name
             result.url = feed["urls"]["static_current"]
+            result.cache_url = "https://gtfsproxy.fwan.it/" + \
+                source.transitland_atlas_id
             result.options = source.options
             result.spec = "gtfs"
             result.fix = source.fix
@@ -39,19 +41,25 @@ class Atlas:
             result.drop_too_fast_trips = source.drop_too_fast_trips
             result.function = source.function
             result.drop_shapes = source.drop_shapes
+            result.fix_csv_quotes = source.fix_csv_quotes
+            result.display_name_options = source.display_name_options
+            result.drop_agency_names = source.drop_agency_names
 
             if source.url_override:
                 result.url_override = source.url_override
-
-            if source.proxy:
-                result.url_override = "https://gtfsproxy.fwan.it/" + \
-                    source.transitland_atlas_id
 
         elif "realtime_trip_updates" in feed["urls"]:
             result = UrlSource()
             result.name = source.name
             result.url = feed["urls"]["realtime_trip_updates"]
             result.spec = "gtfs-rt"
+            result.skip = source.skip
+            result.skip_reason = source.skip_reason
+        elif "gbfs_auto_discovery" in feed["urls"]:
+            result = UrlSource()
+            result.name = source.name
+            result.url = feed["urls"]["gbfs_auto_discovery"]
+            result.spec = "gbfs"
             result.skip = source.skip
             result.skip_reason = source.skip_reason
         else:

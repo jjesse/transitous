@@ -7,10 +7,11 @@ import json
 import csv
 import io
 import transitland
+import mobilitydatabase
 import pycountry
 
 from pathlib import Path
-from metadata import TransitlandSource, Region, UrlSource, HttpSource
+from metadata import TransitlandSource, MobilityDatabaseSource, Region, UrlSource, HttpSource
 from zipfile import ZipFile
 from typing import Optional
 
@@ -148,12 +149,11 @@ def rt_attribution(source: UrlSource) -> dict:
     return attribution
 
 
-
-
 if __name__ == "__main__":
     feed_dir = Path("feeds/")
 
     transitland_atlas = transitland.Atlas.load(Path("transitland-atlas/"))
+    mobilitydb = mobilitydatabase.Database.load()
 
     attributions: dict[str, dict] = {}
 
@@ -180,10 +180,15 @@ if __name__ == "__main__":
         for source in region.sources:
             source_id = f"{region_code_lower}_{source.name}"
 
-            if type(source) is TransitlandSource:
-                source = transitland_atlas.source_by_id(source)
-                if not source:
-                    continue
+            match source:
+                case TransitlandSource():
+                    source = transitland_atlas.source_by_id(source)
+                    if not source:
+                        continue
+                case MobilityDatabaseSource():
+                    source = mobilitydb.source_by_id(source)
+                    if not source:
+                        continue
 
             if source.skip:
                 continue

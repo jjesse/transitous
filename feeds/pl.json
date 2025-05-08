@@ -20,6 +20,14 @@
             "transitland-atlas-id": "f-pkp~intercity~pl"
         },
         {
+            "name": "PKP-Intercity-Germany",
+            "type": "http",
+            "url": "https://kasmar00.github.io/gtfs-pkp-de/latest.zip",
+            "license": {
+                "spdx-identifier": "CC-BY-4.0"
+            }
+        },
+        {
             "name": "PolRegio",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-pol~regio~pl",
@@ -74,12 +82,30 @@
         {
             "name": "Warszawa",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-u3q-warszawski~transport~publiczny"
+            "transitland-atlas-id": "f-u3q-warszawski~transport~publiczny",
+            "fix": true
         },
         {
-            "name": "Warszawa-Alerts",
+            "name": "Warszawa",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u3q-warszawski~transport~publiczny~rt~alerts"
+        },
+        {
+            "name": "Warszawa",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3q-warszawski~transport~publiczny~rt~positions",
+            "spec": "gtfs-rt"
+        },
+        {
+            "name": "Warszawska-Kolej-Dojazdowa",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3qb-warszawskakolejdojazdowa"
+        },
+        {
+            "name": "Warszawska-Kolej-Dojazdowa",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3qb-warszawskakolejdojazdowa~rt",
+            "spec": "gtfs-rt"
         },
         {
             "name": "Łomża",
@@ -104,8 +130,8 @@
         },
         {
             "name": "Gdynia",
-            "type": "http",
-            "url": "http://api.zdiz.gdynia.pl/pt/gtfs.zip",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-ztm~gdynia",
             "fix": true
         },
         {
@@ -120,8 +146,11 @@
         },
         {
             "name": "Elbląg",
-            "type": "transitland-atlas",
-            "transitland-atlas-id": "f-u3tu-elblag"
+            "type": "mobility-database",
+            "mdb-id": "mdb-2597",
+            "license": {
+            "spdx-identifier": "CC0-1.0"
+            }
         },
         {
             "name": "Poznań",
@@ -158,6 +187,87 @@
                 "spdx-identifier": "CC-BY-4.0",
                 "url": "https://spdx.org/licenses/CC-BY-4.0.html"
             }
+        },
+        {
+            "name": "PKP-SKM",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3t-skm~trojmiasto"
+        },
+        {
+            "name": "Koleje-Małopolskie",
+            "type": "mobility-database",
+            "mdb-id": "mdb-1908"
+        },
+        {
+            "name": "ZTP-Kraków-T",
+            "type": "mobility-database",
+            "mdb-id": "mdb-1270"
+        },
+        {
+            "name": "ZTP-Kraków-A",
+            "type": "mobility-database",
+            "mdb-id": "mdb-1326"
+        },
+        {
+            "name": "ZTP-Kraków-M",
+            "type": "mobility-database",
+            "mdb-id": "mdb-2598"
+        },
+        {
+            "name": "ZTP-Kraków",
+            "type": "mobility-database",
+            "spec": "gtfs-rt",
+            "mdb-id": "mdb-2600"
+        },
+        {
+            "name": "MZK-Ełk",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3xf-elk",
+            "fix": true
+        },
+        {
+            "name": "MZK-Ełk",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3xf-elk~rt"
+        },
+        {
+            "name": "Koleje-Śląskie",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u2v-koleje~slaskie"
+        },
+        {
+            "name": "Łódzka-Kolej-Aglomeracyjna",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3j-lodzka~kolej~aglomeracyjna"
+        },
+        {
+            "name": "PKS-Kalisz",
+            "type": "mobility-database",
+            "mdb-id": "mdb-2461",
+            "skip": true,
+            "skip-reason": "Outdated feed",
+            "fix": true
+        },
+        {
+            "name": "Koleje-Wielkopolskie",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3k-koleje~wielkopolskie"
+        },
+        {
+            "name": "MPK-Wrocław",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-u3h4-mpkautobusy~mpktramwaje~dla~sevibussiechnice~dlawiszniama"
+        },
+        {
+            "name": "MPK-Łódź",
+            "type": "mobility-database",
+            "mdb-id": "tld-6079",
+            "fix": true
+        },
+        {
+            "name": "Białystok",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-bialostocka~komunikacja~miejska"
         }
     ]
 }

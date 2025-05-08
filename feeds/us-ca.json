@@ -3,6 +3,10 @@
         {
             "name": "Marcus Lundblad",
             "github": "mlundblad"
+        },
+        {
+            "name": "Kyler Chin",
+            "github": "kylerchin"
         }
     ],
     "sources": [
@@ -16,8 +20,7 @@
             "name": "Capitolcorridor",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-9qc-capitolcorridor",
-            "fix": true,
-            "proxy": true
+            "fix": true
         },
         {
             "name": "SF-bayarea",
@@ -51,10 +54,7 @@
         {
             "name": "Santa-Cruz-Metro",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-9q9-scmtdcom",
-            "proxy": true,
-            "skip": true,
-            "skip-reason": "Generates 404"
+            "transitland-atlas-id": "f-9q9-scmtdcom"
         },
         {
             "name": "Santa-Cruz-Metro",
@@ -66,25 +66,18 @@
         {
             "name": "Sacramento-Regional-Transit",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-9qce-sacramentoregionaltransit",
-            "proxy": true
+            "transitland-atlas-id": "f-9qce-sacramentoregionaltransit"
         },
         {
             "name": "Sacramento-Regional-Transit",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-9qce-sacramentoregionaltransit~rt",
-            "proxy": true
+            "transitland-atlas-id": "f-9qce-sacramentoregionaltransit~rt"
         },
         {
             "name": "Metro-LosAngeles",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-9q5-metro~losangeles",
             "fix": true
-        },
-        {
-            "name": "Metro-LosAngeles",
-            "type": "transitland-atlas",
-            "transitland-atlas-id": "f-metro~losangeles~alerts"
         },
         {
             "name": "Metro-LosAngeles-Rail",
@@ -171,37 +164,38 @@
         {
             "name": "Monterey-Salinas-Transit",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-9q9-monterey~salinastransit",
-            "proxy": true
+            "transitland-atlas-id": "f-9q9-monterey~salinastransit"
         },
         {
             "name": "Monterey-Salinas-Transit",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-mst~rt",
-            "proxy": true
+            "transitland-atlas-id": "f-mst~rt"
         },
         {
             "name": "Roseville-Transit",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-9qcs-rosevilletransit",
-            "proxy": true
+            "transitland-atlas-id": "f-9qcs-rosevilletransit"
         },
         {
             "name": "Roseville-Transit",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-rosevilletransit~rt",
-            "proxy": true
+            "transitland-atlas-id": "f-rosevilletransit~rt"
         },
         {
             "name": "Southcounty-Transitlink",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-southcountytransitlink~ca~us",
-            "proxy": true
+            "transitland-atlas-id": "f-southcountytransitlink~ca~us"
         },
         {
             "name": "Sage-Stage",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-9r-sagestage"
+        },
+        {
+            "name": "OC-Bus",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-9mu-orangecountytransportationauthority",
+            "url-override": "https://github.com/catenarytransit/agency-gtfs-mirror/raw/refs/heads/main/octa_gtfs.zip"
         }
     ]
 }

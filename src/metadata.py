@@ -22,6 +22,24 @@ class License:
     url: Optional[str] = None
 
 
+class DisplayNameOptions:
+    copy_trip_names_matching: Optional[str] = None
+    keep_route_names_matching: Optional[str] = None
+    move_headsigns_matching: Optional[str] = None
+
+    def __init__(self, parsed: Optional[dict] = None):
+        if parsed:
+            if "copy-trip-names-matching" in parsed:
+                self.copy_trip_names_matching = \
+                    parsed["copy-trip-names-matching"]
+            if "keep-route-names-matching" in parsed:
+                self.keep_route_names_matching = \
+                    parsed["keep-route-names-matching"]
+            if "move-headsigns-matching" in parsed:
+                self.move_headsigns_matching = \
+                    parsed["move-headsigns-matching"]
+
+
 class Source:
     name: str
     fix: bool = False
@@ -34,6 +52,7 @@ class Source:
     drop_too_fast_trips: bool = True
     drop_shapes: bool = False
     drop_agency_names: List[str] = []
+    display_name_options: Optional[DisplayNameOptions] = None
 
     def __init__(self, parsed: Optional[dict] = None):
         self.license = License()
@@ -63,6 +82,9 @@ class Source:
                 self.drop_shapes = parsed["drop-shapes"]
             if "drop-agency-names" in parsed:
                 self.drop_agency_names = parsed["drop-agency-names"]
+            if "display-name-options" in parsed:
+                self.display_name_options = \
+                    DisplayNameOptions(parsed["display-name-options"])
 
 
 class HttpOptions:
@@ -71,6 +93,7 @@ class HttpOptions:
     ignore_tls_errors: bool = False
 
     def __init__(self, parsed: Optional[dict] = None):
+        self.headers = {}
         if parsed:
             if "fetch-interval-days" in parsed:
                 self.fetch_interval_days = \
@@ -85,15 +108,27 @@ class HttpOptions:
 
 class TransitlandSource(Source):
     transitland_atlas_id: str = ""
-    options: HttpOptions = HttpOptions()
     url_override: Optional[str] = None
-    proxy: bool = False
+    options: HttpOptions = HttpOptions()
 
     def __init__(self, parsed: dict):
         super().__init__(parsed)
         self.transitland_atlas_id = parsed["transitland-atlas-id"]
         self.url_override = parsed.get("url-override", None)
-        self.proxy = parsed.get("proxy", False)
+
+        if "http-options" in parsed:
+            self.options = HttpOptions(parsed["http-options"])
+
+
+class MobilityDatabaseSource(Source):
+    mdb_id: str = ""
+    url_override: Optional[str] = None
+    options: HttpOptions = HttpOptions()
+
+    def __init__(self, parsed: dict):
+        super().__init__(parsed)
+        self.mdb_id = parsed["mdb-id"]
+        self.url_override = parsed.get("url-override", None)
 
         if "http-options" in parsed:
             self.options = HttpOptions(parsed["http-options"])
@@ -103,6 +138,7 @@ class HttpSource(Source):
     url: str = ""
     options: HttpOptions = HttpOptions()
     url_override: Optional[str] = None
+    cache_url: Optional[str] = None
 
     def __init__(self, parsed: Optional[dict] = None):
         if parsed:
@@ -130,13 +166,15 @@ def sourceFromJson(parsed: dict) -> Source:
     match parsed["type"]:
         case "transitland-atlas":
             return TransitlandSource(parsed)
+        case "mobility-database":
+            return MobilityDatabaseSource(parsed)
         case "http":
             return HttpSource(parsed)
         case "url":
             return UrlSource(parsed)
 
     eprint("Error: Unknown value for type:", parsed["type"])
-    eprint("Allowed values: transitland-atlas, http, url")
+    eprint("Allowed values: transitland-atlas, mobility-database, http, url")
     sys.exit(1)
 
 
