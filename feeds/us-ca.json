@@ -7,6 +7,10 @@
         {
             "name": "Kyler Chin",
             "github": "kylerchin"
+        },
+        {
+            "name": "Nedžad Beus",
+            "github": "vekejsn"
         }
     ],
     "sources": [
@@ -20,6 +24,12 @@
             "name": "Capitolcorridor",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-9qc-capitolcorridor",
+            "fix": true
+        },
+        {
+            "name": "GOVCbus",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-9q5-govcbus",
             "fix": true
         },
         {
@@ -49,7 +59,9 @@
         {
             "name": "Samtrans",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-9q8-samtrans"
+            "transitland-atlas-id": "f-9q8-samtrans",
+            "skip": true,
+            "skip-reason": "api-key must be set in query params (url-override?)"
         },
         {
             "name": "Santa-Cruz-Metro",
@@ -137,8 +149,7 @@
         {
             "name": "LA-County",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-la~county",
-            "fix": true
+            "transitland-atlas-id": "f-9q5-dpwlacounty~ca~us"
         },
         {
             "name": "Elkgrove",
@@ -159,7 +170,9 @@
         {
             "name": "SDMTS",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-mts~rt~onebusaway"
+            "transitland-atlas-id": "f-mts~rt~onebusaway",
+            "skip": true,
+            "skip-reason": "api-key must be set in query params (url-override?)"
         },
         {
             "name": "Monterey-Salinas-Transit",
@@ -196,6 +209,41 @@
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-9mu-orangecountytransportationauthority",
             "url-override": "https://github.com/catenarytransit/agency-gtfs-mirror/raw/refs/heads/main/octa_gtfs.zip"
+        },
+        {
+            "name": "Marin-Airporter",
+            "type": "http",
+            "url": "https://www.modeshift.app/api/v1/650b2f0d-9530-491a-a270-7581cec1d45f/transport/gtfs/gtfs.zip"
+        },
+        {
+            "name": "Marin-Airporter",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://www.modeshift.app/api/v1/650b2f0d-9530-491a-a270-7581cec1d45f/transport/gtfsrt/tripupdates.pb"
+        },
+        {
+            "name": "Marin-Airporter",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://www.modeshift.app/api/v1/650b2f0d-9530-491a-a270-7581cec1d45f/transport/gtfsrt/alerts.pb"
+        },
+        {
+            "name": "SMRT",
+            "type": "http",
+            "url": "https://www.modeshift.app/api/v1/df7541b2-ba8b-483e-b767-9de5043a54f7/transport/gtfs/gtfs.zip",
+            "fix": true
+        },
+        {
+            "name": "SMRT",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://www.modeshift.app/api/v1/df7541b2-ba8b-483e-b767-9de5043a54f7/transport/gtfsrt/tripupdates.pb"
+        },
+        {
+            "name": "SMRT",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://www.modeshift.app/api/v1/df7541b2-ba8b-483e-b767-9de5043a54f7/transport/gtfsrt/alerts.pb"
         }
     ]
 }

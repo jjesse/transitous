@@ -6,7 +6,7 @@
 import requests
 import json
 
-TIMETABLE_YEARS = [2025]
+TIMETABLE_YEARS = [2025, 2026]
 
 
 def remove_duplicate_dashes(text: str) -> str:
@@ -26,7 +26,7 @@ def remove_duplicate_dashes(text: str) -> str:
 
 def add_feed(year: int) -> dict:
     url = f"https://data.mobilitaetsverbuende.at/api/public/v1/data-sets/{set_id}/{year}/file"
-    return {
+    source = {
         "name": remove_duplicate_dashes(
             data_set["nameEn"]
             .replace("Timetable Data", "")
@@ -40,8 +40,15 @@ def add_feed(year: int) -> dict:
         "function": "mvo_keycloak_token",
         "http-options": {
             "fetch-interval-days": 2
-        }
+        },
+        "managed-by-script": True,
+        "x-mvo-id": f"{set_id}-{year}"
     }
+    if "Flex" in data_set["nameEn"]:
+        source["spec"] = "gtfs-flex"
+        del source["fix"]
+
+    return source
 
 
 if __name__ == "__main__":
@@ -54,30 +61,33 @@ if __name__ == "__main__":
         "https://data.mobilitaetsverbuende.at/api/public/v1/data-sets?tagIds=20&tagFilterModeInclusive=false"
     ).json()
 
-    sources: list[dict] = []
+    with open("feeds/at.json", "r") as f:
+        region = json.load(f)
+
+    sources: list[dict] = region["sources"]
+
+    # Flex feeds are supersets of their non-Flex counterparts
+    flex_feeds = {}
+    for data_set in data_sets:
+        if "Flex" in data_set["nameEn"]:
+            flex_feeds[data_set["nameEn"].replace(" Flex", "")] = True
 
     for data_set in data_sets:
         set_id = data_set["id"]
-        if set_id in ignore:
-            continue
-
-        if "Flex" in data_set["nameEn"]:
+        if set_id in ignore or data_set["nameEn"] in flex_feeds:
             continue
 
         for year in TIMETABLE_YEARS:
-            source = add_feed(year)
-            if set_id == "66":  # ÖBB
-                source["display-name-options"] = {}
-                source["display-name-options"]["copy-trip-names-matching"] = \
-                    r"((IC)|(ECB)|(EC)|(RJ)|(RJX)|(D)|(NJ)|(EN)|(CJX)|(ICE)|(IR)|(REX)|(R)|(ER)|(ATB)|(WB)) \d+"
-                source["display-name-options"]["keep-route-names-matching"] = \
-                    r"((RE)|(RB)|S) ?\d+"
-            sources.append(source)
+            existed = False
+            for source in sources:
+                if source["x-mvo-id"] == f"{set_id}-{year}":
+                    source["url"] = f"https://data.mobilitaetsverbuende.at/api/public/v1/data-sets/{set_id}/{year}/file"
+                    source["license"]: {"url": data_set["termsOfUseUrlEn"]}
+                    existed = True
 
-    region = {}
-
-    with open("feeds/at.json", "r") as f:
-        region = json.load(f)
+            if not existed:
+                source = add_feed(year)
+                sources.append(source)
 
     region["sources"] = sources
 

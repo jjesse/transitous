@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Jonah Brüchert <jbb@kaidan.im>
 # SPDX-License-Identifier: CC0-1.0
 
-name: Verfy new data can be imported
+name: Verify new data can be imported
 
 on:
   pull_request:
@@ -22,4 +22,4 @@ jobs:
       run: |
         find . -type d -exec chmod 777 {} \;
         docker run -v $PWD:/transitous -w /transitous transitous ci/fetch-feeds.py merge-request
-        docker run -v $PWD:/transitous -w /transitous transitous src/generate-motis-config.py full
+        docker run -v $PWD:/transitous -w /transitous transitous src/generate-motis-config.py

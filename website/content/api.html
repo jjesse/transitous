@@ -11,20 +11,60 @@ SPDX-FileCopyrightText: 2024 Jonah Brüchert <jbb@kaidan.im>
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
-The API provided by Transitous can be used for free, but we recommend that you let us know if you use it, so your use case can be considered in future decisions.
-You can do that by <a href="https://github.com/public-transport/transitous/blob/main/website/content/_index.html#L30">adding your app to our website</a> and/or letting us know in our <a href="https://matrix.to/#/%23transitous:matrix.spline.de">Matrix channel</a>.
+<h2>Usage Policy</h2>
+
+<p>Transitous is provided by a community of volunteers to fulfill the needs of Free and Open Source applications and other non-profit activities.
+We provide the service on a best-effort basis and reserve the right to stop providing it to any consumer at any time.</p>
+
+<h3>Resource Usage</h3>
+
+<p>Our hosting resources are limited.
+Please contact us before doing any potentially resource-intensive operations, such as many requests (also from different users) or primarily difficult to calculate requests (such as routing, isochrones).
+Generally, if your requests take long, they are difficult to calculate.</p>
+
+<p>We'll try to find ways to accommodate your use. Should we hit the limits of what we can handle with our current resources,
+there's also the option to <a href="/doc/#running-a-transitous-instance-locally">self-host your own instance of Transitous</a>.</p>
+
+<p>There is no need to scrape data using the API, you may download our entire source dataset <a href="https://github.com/public-transport/transitous/wiki/Using-Transitous-data">here</a>.
+
+<h3>API Usage</h3>
+
+<p>If you want to use the API for your free and open-source application, please:<p>
+
+<ul>
+<li>Contact us <a href="https://matrix.to/#/%23transitous:matrix.spline.de">in our Matrix Channel</a> to make sure we can handle your
+expected resource usage and so we are aware of your usecases. This also allows us to contact you in case we want to coordinate breaking changes.</li>
+<li>Make sure your send HTTP <code>User-Agent</code> or <code>X-Client-Identification</code> headers with every request, at least containing the following information:</li>
+<ul>
+    <li>Name of the application</li>
+    <li>Version of the client implementation</li>
+    <li>A way of contact (e-mail address or website URL)</li>
+</ul>
+<li>You may <a href="https://github.com/public-transport/transitous/blob/b2d184b51cb4cf20fb48d0b76420ba57f4d3fce0/website/content/_index.html#L30">add your application to the Transitous website</a></li>
+</ul>
+
+<h3>Commercial Use</h3>
+
+<p>Transitous is not intended for commercial or for-profit purposes. If you are not sure whether your use qualifies, please contact us.
+We will make a decision on a case-by-case basis.
+<!--For commercial use, see the <a href="/suppliers/">list of companies providing consulting and MOTIS hosting<a/>. TODO uncomment as soon as that list is no longer empty -->
+</p>
 
 <h2>MOTIS 2 API</h2>
 
 <p>Transitous provides the MOTIS 2 API. It is the first stable and versioned MOTIS API, and is incompatible with previous development versions of the API.</p>
 
-<p>Our API endpoint is located at <code>https://api.transitous.org/api/v1/</code>.</p>
+<p>Our API endpoint is located at <code>https://api.transitous.org/api/</code>.</p>
 
-<a class="btn btn-primary text-black" href="https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/motis-project/motis/refs/heads/master/openapi.yaml">API Documentation</a>
+<p>API endpoints for Transitous' own development, such as the staging instance (<code>staging.api.transitous.org</code>), or internal API endpoints for direct access to servers behind the load balancer (<code>*.motis-project.org</code>, <code>*.motis-project.de</code>, <code>*.spline.de</code>), must not be used by applications.</p>
+
+<a class="btn btn-primary text-black" href="https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/motis-project/motis/refs/tags/v2.5.1/openapi.yaml">API Documentation</a>
 
 <h2>Client Libraries</h2>
 <div class="mt-4 app-card-row">
 {{< library-card name="KPublicTransport" description="A library for accessing realtime public transport data and for performing public transport journey queries." website="https://invent.kde.org/libraries/kpublictransport" tags="C++,Qt,LGPL" >}}
+{{< library-card name="motis-client" description="Pre-generated JS client for MOTIS based on the OpenAPI definition" tags="JS,TS"  website="https://www.npmjs.com/package/@motis-project/motis-client">}}
+{{< library-card name="motis-fptf-client" description="Exposing the MOTIS API as a Friendly Public Transport Format API" tags="JS"  website="https://www.npmjs.com/package/@motis-project/motis-fptf-client">}}
 {{< library-card name="Travel::Status::MOTIS" description="Interface to MOTIS routing services " tags="Perl"  website="https://finalrewind.org/projects/Travel-Status-MOTIS/">}}
 </div>
 
@@ -32,7 +72,7 @@ You can do that by <a href="https://github.com/public-transport/transitous/blob/
 
 <p>MOTIS releases are tested with our data before deploying them to the main API endpoint.</p>
 
-<p>You can test the almost-latest MOTIS release on <code>https://staging.api.transitous.org/api/v1/</code>.</p>
+<p>You can test the almost-latest MOTIS release on <code>https://staging.api.transitous.org/api/</code>.</p>
 
 <p>Please note that full planet-wide OpenStreetMap data is not available there. The web interface is currently shared between stable and the staging instance, and does not represent the featureset available in the MOTIS version.</p>
 

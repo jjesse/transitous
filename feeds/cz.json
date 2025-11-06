@@ -7,6 +7,14 @@
         {
             "name": "Jonah Brüchert",
             "github": "jbruechert"
+        },
+        {
+            "name": "Petr Novák",
+            "github": "hoermalmeister"
+        },
+        {
+            "name": "Nedžad Beus",
+            "github": "vekejsn"
         }
     ],
     "sources": [
@@ -20,6 +28,14 @@
             "fix": true
         },
         {
+            "name": "CZPTT",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://owncloud.cesnet.cz/index.php/s/DQdSPwh0bJjtEWq/download",
+            "skip": true,
+            "skip-reason": "Feed does not return proper delays"
+        },
+        {
             "name": "PID",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u2f-pražskáintegrovanádoprava"
@@ -28,12 +44,30 @@
             "name": "PID",
             "type": "url",
             "spec": "gtfs-rt",
-            "url": "https://api.golemio.cz/v2/vehiclepositions/gtfsrt/trip_updates.pb"
+            "url": "https://api.golemio.cz/v2/vehiclepositions/gtfsrt/pid_feed.pb"
+        },
+        {
+            "name": "PID",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.golemio.cz/v2/vehiclepositions/gtfsrt/alerts.pb"
         },
         {
             "name": "IDS-JMK",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-u2e-idsjmk"
+        },
+        {
+            "name": "IDS-JMK",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://content.idsjmk.cz/kestazeni/gtfsReal.dat"
+        },
+        {
+            "name": "IDS-JMK",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://rt.gtfs.baguette.pirnet.si/gtfs-rt/idsjmk/trip_updates.pb"
         },
         {
             "name": "DPMLJ",
@@ -49,17 +83,31 @@
             "fix": true
         },
         {
-            "name": "Bean-Shuttle",
-            "type": "mobility-database",
-            "mdb-id": "mdb-2036"
-        },
-        {
             "name": "PMDP",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-plzen",
             "http-options": {
                 "fetch-interval-days": 1
             }
+        },
+        {
+            "name": "IDZK",
+            "type": "http",
+            "url": "https://dataportal-files.bileto.net/id-zk-all.zip"
+        },
+        {
+            "name": "JDF-merged",
+            "type": "http",
+            "url": "https://github.com/KoblizekXD/gtfs-processor/raw/refs/heads/gtfs/files/latest.zip",
+            "license": {
+                "spdx-identifier": "CC0-1.0"
+            }
+        },
+        {
+            "name": "IDZK",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://owncloud.cesnet.cz/index.php/s/249lP7QKA8CR2PY/download"
         }
     ]
 }

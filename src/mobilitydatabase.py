@@ -4,9 +4,8 @@
 
 from pathlib import Path
 from typing import Dict, Optional
-from metadata import UrlSource, HttpSource, Source, MobilityDatabaseSource, License
+from metadata import UrlSource, HttpSource, Source, MobilityDatabaseSource, License, inherit_options_from_db_source
 from utils import eprint
-import sys
 import requests
 import csv
 import os
@@ -53,24 +52,10 @@ class Database:
 
         match feed["data_type"]:
             case "gtfs":
-                result = HttpSource()
-                result.name = source.name
+                result = inherit_options_from_db_source(source)
                 result.url = feed["urls.direct_download"]
                 result.cache_url = feed["urls.latest"]
-                result.options = source.options
                 result.spec = "gtfs"
-                result.fix = source.fix
-                result.skip = source.skip
-                result.skip_reason = source.skip_reason
-                result.drop_too_fast_trips = source.drop_too_fast_trips
-                result.function = source.function
-                result.drop_shapes = source.drop_shapes
-                result.fix_csv_quotes = source.fix_csv_quotes
-                result.display_name_options = source.display_name_options
-
-                if source.url_override:
-                    result.url_override = source.url_override
-
             case "gtfs_rt":
                 result = UrlSource()
                 result.name = source.name
@@ -83,8 +68,15 @@ class Database:
                        source.mdb_id, "of type", data_type)
                 return None
 
+        result.license = License()
+
         if "license" in feed:
-            result.license = License()
             result.license.url = feed["license"]
+
+        # Allow to override these as mobility database does not have spdx-identifiers (yet)
+        if source.license.spdx_identifier:
+            result.license.spdx_identifier = source.license.spdx_identifier
+        if source.license.url:
+            result.license.url = source.license.url
 
         return result

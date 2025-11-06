@@ -3,32 +3,94 @@
         {
             "name": "Thomas Dickson",
             "github": "Hoverth"
+        },
+        {
+            "name": "applecuckoo",
+            "github": "applecuckoo"
         }
     ],
     "sources": [
         {
             "name": "AT",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-rck-gowest~sealinkgroup~atairporter~atmetro~thepartybuscompany"
+            "transitland-atlas-id": "f-rck-gowest~sealinkgroup~atairporter~atmetro~thepartybuscompany",
+            "script": "nz-AT.lua"
         },
         {
             "name": "AT",
+            "spec": "gtfs-rt",
+            "type": "url",
+            "url": "https://jbb.ghsq.de/gtfs/at/legacy"
+        },
+        {
+            "name": "Flamingo-Auckland",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-auckland~transport~rt"
+            "transitland-atlas-id": "f-flamingo~auckland~gbfs"
+        },
+        {
+            "name": "Flamingo-Dunedin",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-flamingo~dunedin~gbfs"
+        },
+        {
+            "name": "Flamingo-Palmerston-North",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-flamingo~palmerston~north~gbfs"
+        },
+        {
+            "name": "Flamingo-Porirua",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-flamingo~porirua~gbfs"
+        },
+        {
+            "name": "Flamingo-Waimakariri",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-flamingo~waimakariri~district~gbfs"
+        },
+        {
+            "name": "Flamingo-Wellington",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-flamingo~wellington~gbfs"
+        },
+        {
+            "name": "Flamingo-Tauranga",
+            "type": "transitland-atlas",
+            "transitland-atlas-id": "f-flamingo~tauranga~gbfs"
         },
         {
             "name": "Metlink",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-rbs-gowellington~tranzitcoachlines~paraparaumutaxisltd~kapitic"
+            "transitland-atlas-id": "f-rbs-gowellington~tranzitcoachlines~paraparaumutaxisltd~kapitic",
+            "script": "nz-Metlink.lua"
         },
         {
             "name": "Metlink",
-            "type": "transitland-atlas",
-            "transitland-atlas-id": "f-metlink~nz~rt",
-            "http-options": {
-                "headers": {
-                    "x-api-key": "7fVCKRUoiwazDBLw4O0n95ABkNfkhn4o5hppHrdR"
-                }
+            "spec": "gtfs-rt",
+            "type": "url",
+            "url": "https://api.opendata.metlink.org.nz/v1/gtfs-rt/servicealerts",
+            "headers": {
+                "Accept": "application/x-protobuf",
+                "x-api-key": "17mgElKK4t16dD0dOVxGZGrmjsvKHW8aqFPTC1vd"
+            }
+        },
+        {
+            "name": "Metlink",
+            "spec": "gtfs-rt",
+            "type": "url",
+            "url": "https://api.opendata.metlink.org.nz/v1/gtfs-rt/tripupdates",
+            "headers": {
+                "Accept": "application/x-protobuf",
+                "x-api-key": "17mgElKK4t16dD0dOVxGZGrmjsvKHW8aqFPTC1vd"
+            }
+        },
+        {
+            "name": "Metlink",
+            "spec": "gtfs-rt",
+            "type": "url",
+            "url": "https://api.opendata.metlink.org.nz/v1/gtfs-rt/vehiclepositions",
+            "headers": {
+                "Accept": "application/x-protobuf",
+                "x-api-key": "17mgElKK4t16dD0dOVxGZGrmjsvKHW8aqFPTC1vd"
             }
         },
         {
@@ -40,26 +102,20 @@
             "name": "Metro-Christchurch",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-rb6b-metrochristchurch",
-            "http-options": {
-                "headers": {
-                    "Ocp-Apim-Subscription-Key": "920de6bcafdb445699a7ba92dd5cc005"
-                }
-            }
+            "api-key": "920de6bcafdb445699a7ba92dd5cc005",
+            "fix": true
         },
         {
             "name": "Metro-Christchurch",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-rb6b-metrochristchurch~rt",
-            "http-options": {
-                "headers": {
-                    "Ocp-Apim-Subscription-Key": "920de6bcafdb445699a7ba92dd5cc005"
-                }
-            }
+            "api-key": "920de6bcafdb445699a7ba92dd5cc005"
         },
         {
             "name": "BUSIT",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-busit~nz"
+            "transitland-atlas-id": "f-busit~nz",
+            "script": "nz-BUSIT.lua"
         },
         {
             "name": "Baybus",

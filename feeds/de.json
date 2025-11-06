@@ -31,20 +31,32 @@
                 "Braunschweiger Verkehrs-GmbH",
                 "Kraftverkehrsgesellschaft mbH Braunschweig",
                 "SWO Mobil GmbH",
-                "FlixBus-de"
+                "FlixBus-de",
+                "EUROSTAR"
             ],
             "http-options": {
                 "fetch-interval-days": 2
+            },
+            "script": "de-DELFI.lua"
+        },
+        {
+            "name": "DELFI",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://germany.motis-project.org/gtfsrt",
+            "license": {
+                "spdx-identifier": "CC-BY-SA-4.0",
+                "url": "https://germany.motis-project.org/LICENSE.txt"
             }
         },
         {
             "name": "DELFI",
             "type": "url",
             "spec": "gtfs-rt",
-            "url": "https://stc.traines.eu/mirror/german-delfi-gtfs-rt/latest.gtfs-rt.pbf",
+            "url": "http://2a00-12d8-700e-0-9a12-3eb4-e927-3d9a.has-a.name/feed/feed.pb",
             "license": {
-                "spdx-identifier": "CC-BY-SA-4.0",
-                "url": "https://mobilithek.info/offers/755009281410899968"
+                "spdx-identifier": "CC-BY-4.0",
+                "url": "http://[2a00:12d8:700e:0:9a12:3eb4:e927:3d9a]/feed/LICENSE.txt"
             }
         },
         {
@@ -134,11 +146,6 @@
             "transitland-atlas-id": "f-vrnnextbike~rhine~neckar~gbfs"
         },
         {
-            "name": "meinRad",
-            "type": "transitland-atlas",
-            "transitland-atlas-id": "f-meinrad~mainz~gbfs"
-        },
-        {
             "name": "LimeFrankfurt",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-lime~frankfurt~gbfs"
@@ -203,11 +210,6 @@
             "name": "NextbikeLeipzig",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-nextbike~leipzig~gbfs"
-        },
-        {
-            "name": "MovemixHalle",
-            "type": "transitland-atlas",
-            "transitland-atlas-id": "f-movemix~bike~halle~de~gbfs"
         }
     ]
 }

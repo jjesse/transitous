@@ -1,0 +1,1971 @@
+{
+    "maintainers": [
+        {
+            "name": "David Wales",
+            "github": "daviewales"
+        },
+        {
+            "name": "applecuckoo",
+            "github": "applecuckoo"
+        }
+    ],
+    "sources": [
+        {
+            "name": "Transport-for-New-South-Wales-complete",
+            "type": "mobility-database",
+            "mdb-id": "mdb-2449",
+            "fix": true,
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            }
+        },
+        {
+            "name": "Transport-for-New-South-Wales-flex",
+            "type": "http",
+            "spec": "gtfs-flex",
+            "url": "https://opendata.transport.nsw.gov.au/data/dataset/a5ecd906-ce73-484c-8cea-fa6fecfe368e/resource/e25092cc-67a1-469c-b57a-20793c259486/download/ondemand_gtfsflex.zip",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            }
+        },
+        {
+            "name": "Transport-for-New-South-Wales-metro",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/schedule/metro",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-metro",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/realtime/metro",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-metro",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/metro",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydney-trains",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/sydneytrains",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "script": "au-nsw-sydney-trains.lua",
+            "drop-agency-names": ["NSW Trains"],
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydney-trains",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/realtime/sydneytrains",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydney-trains",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/sydneytrains",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-nsw-trains",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/nswtrains",
+            "fix": true,
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-nsw-trains",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/nswtrains",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-nsw-trains",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/nswtrains",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydney-ferries",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/ferries/sydneyferries",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydney-ferries",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/ferries/sydneyferries",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydney-ferries",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/ferries",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-mff",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/ferries/MFF",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-mff",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/ferries/MFF",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-mff",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/ferries",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-inner-west-lr",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/lightrail/innerwest",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-inner-west-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/lightrail/innerwest",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-inner-west-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/lightrail",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-cbd-and-southeast-lr",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/lightrail/cbdandsoutheast",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-cbd-and-southeast-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/lightrail/cbdandsoutheast",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-cbd-and-southeast-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/lightrail",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-parramatta-lr",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/lightrail/parramatta",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-parramatta-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/lightrail/parramatta",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-parramatta-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/lightrail",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newcastle-lr",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/lightrail/newcastle",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newcastle-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/lightrail/newcastle",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newcastle-lr",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/lightrail",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC001",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC001",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC001",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC001",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC002",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC002",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC002",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC002",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC003",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC003",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC003",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC003",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC004",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC004",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC004",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC004",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC008",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC008",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC008",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC008",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC009",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC009",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC009",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC009",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC010",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC010",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC010",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC010",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC011",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC011",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC011",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC011",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC012",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/OSMBSC012",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC012",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-OSMBSC012",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-SBSC006",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/SBSC006",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-SBSC006",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-SBSC006",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC001",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC001",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC001",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC001",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC002",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC002",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC002",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC002",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC003",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC003",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC003",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC003",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC004",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC004",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC004",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC004",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC007",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC007",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC007",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC007",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC008",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC008",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC008",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC008",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC009",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC009",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC009",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC009",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC010",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC010",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC010",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC010",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC014",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/GSBC014",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC014",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-GSBC014",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-NISC001",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/NISC001",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-NISC001",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-NISC001",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-centralwestandorana",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/centralwestandorana",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-centralwestandorana",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/centralwestandorana",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-centralwestandorana",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-farwest",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/farwest",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-farwest",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/farwest",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-farwest",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newenglandnorthwest",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/newenglandnorthwest",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newenglandnorthwest",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/newenglandnorthwest",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newenglandnorthwest",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/northcoast",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/northcoast",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/riverinamurray",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/riverinamurray",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/riverinamurray",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/riverinamurray",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-southeasttablelands",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/southeasttablelands",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-southeasttablelands",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/southeasttablelands",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-southeasttablelands",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydneysurrounds",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/sydneysurrounds",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydneysurrounds",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/sydneysurrounds",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-sydneysurrounds",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-centralwestandorana2",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/centralwestandorana2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-centralwestandorana2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/centralwestandorana2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-centralwestandorana2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast2",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/northcoast2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/northcoast2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast3",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/northcoast3",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast3",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/northcoast3",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-northcoast3",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray2",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/riverinamurray2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/riverinamurray2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-riverinamurray2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-southeasttablelands2",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/southeasttablelands2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-southeasttablelands2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/southeasttablelands2",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-southeasttablelands2",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newcastlehunter",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/regionbuses/newcastlehunter",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newcastlehunter",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/regionbuses/newcastlehunter",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-newcastlehunter",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/regionbuses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-ReplacementBus",
+            "type": "http",
+            "spec": "gtfs",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/schedule/buses/ReplacementBus",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "http-options": {
+                "headers": {
+                    "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+                }
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-ReplacementBus",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v1/gtfs/realtime/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        },
+        {
+            "name": "Transport-for-New-South-Wales-ReplacementBus",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://api.transport.nsw.gov.au/v2/gtfs/alerts/buses",
+            "license": {
+                "spdx_identifier": "CC-BY-4.0"
+            },
+            "headers": {
+                "Authorization": "apikey eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJPRE5PRmoyZ3lXZEkxVzNfcXdTYVBqUUVnRldLMG9IV0lrS2VvZTdvUzhjIiwiaWF0IjoxNzU0MTY3MzQ4fQ.SEms0C7NpuZFHIz2mwisET8VzDrHqKGYVKt2rqGpkMU"
+            },
+            "skip": true,
+            "skip-reason": "rate-limiting"
+        }
+    ]
+}

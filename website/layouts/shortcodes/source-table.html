@@ -9,27 +9,43 @@ summary {
   margin-top: 60px;
 }
 
-summary h2 {
+summary h2,
+summary h3 {
   display: inline;
 }
 </style>
 
-{{ $lastRegion := "_initial_" }}
+{{ $lastCountry := "_initial_" }}
+{{ $lastSubdivision := "" }}
 {{ range $index, $source := $.Site.Data.license }}
-  {{ $region := .region_name }}
+  {{ $country := .country_name }}
+  {{ $subdivision := .subdivision_name }}
 
   <!--If new region, open a new <details> section -->
-  {{ if ne $region $lastRegion }}
+  {{ if ne $country $lastCountry }}
     <!-- If it's not the first <details> section, first close the previous one -->
-    {{ if ne $lastRegion "_initial_" }}
+    {{ if $lastSubdivision }}
+      </details>
+      {{ $lastSubdivision = "" }}
+    {{ end }}
+    {{ if ne $lastCountry "_initial_" }}
       </details>
     {{ end }}
-    
     <details>
-      <summary><h2>{{ .region_name }}</h2></summary>
+      <summary><h2>{{ .country_name }}</h2></summary>
   {{ end }}
 
-  <h3>{{ .human_name }}</h3>
+  {{ if ne $subdivision $lastSubdivision }}
+    {{ if $lastSubdivision }}
+      </details>
+    {{ end }}
+    {{ if $subdivision }}
+    <details style="margin-left: 50px;">
+      <summary><h3>{{ .subdivision_name }}</h3></summary>
+    {{ end }}
+  {{ end }}
+
+  <h4>{{ .human_name }}</h4>
 
   <p>Data from {{ (urls.Parse $source.source).Host }} is used
 
@@ -82,24 +98,30 @@ summary h2 {
   <a class="btn btn-outline-secondary" href="{{ $source.source }}">Original File</a>
   <a class="btn btn-outline-secondary" href="https://api.transitous.org/gtfs/{{ $source.filename }}">Processed File</a>
 
-  {{ if or $source.rt_source }}
+  {{ if or $source.rt }}
+    {{ range $rt_source := $source.rt }}
     <p class="mt-3 fs-6">
-    Realtime data is sourced from <a href="{{ .rt_source }}">{{ (urls.Parse $source.rt_source).Host }}</a>
-    {{- if or $source.rt_license_url $source.rt_spdx_license_identifier }}
+    Realtime data is sourced from <a href="{{ $rt_source.source }}">{{ (urls.Parse $rt_source.source).Host }}</a>
+    {{- if or $rt_source.license_url $rt_source.spdx_license_identifier }}
       under
-      {{ if $source.rt_license_url }}
-      <a href="{{ .rt_license_url }}">these conditions</a>
+      {{ if $rt_source.license_url }}
+      <a href="{{ $rt_source.license_url }}">these conditions</a>
       {{ else }}
-      <a href="https://spdx.org/licenses/{{ .rt_spdx_license_identifier }}.html">{{ .rt_spdx_license_identifier }}</a>
+      <a href="https://spdx.org/licenses/{{ $rt_source.spdx_license_identifier }}.html">{{ $rt_source.spdx_license_identifier }}</a>
       {{ end }}
     {{- end }}.
     </p>
+    {{ end }}
   {{ end }}
   <!-- Update lastRegion value -->
-  {{ $lastRegion = $region }}
+  {{ $lastCountry = $country }}
+  {{ $lastSubdivision = $subdivision }}
 {{ end }}
 <!-- Close last <details> -->
-{{ if ne $lastRegion "_initial_" }}
+{{ if ne $lastSubdivision "_initial_" }}
+  </details>
+{{ end }}
+{{ if ne $lastCountry "_initial_" }}
   </details>
 {{ end }}
 

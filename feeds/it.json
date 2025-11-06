@@ -7,6 +7,15 @@
     ],
     "sources": [
         {
+            "name": "Calabria-CORE",
+            "type": "mobility-database",
+            "mdb-id": "mdb-2668",
+            "fix": true,
+            "license": {
+                "url":"https://www.dati.gov.it/content/italian-open-data-license-v20"
+            }
+        },
+        {
             "name": "Campania-ANM",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-s-anm~it",
@@ -70,6 +79,14 @@
             "fix": true
         },
         {
+            "name": "Lombardia-Autolinee-Varesine",
+            "type": "mobility-database",
+            "mdb-id": "mdb-1059",
+            "license": {
+                "url":"https://www.dati.gov.it/content/italian-open-data-license-v20"
+            }
+        },
+        {
             "name": "Lombardia-Movibus",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-movibus~srl"
@@ -128,7 +145,7 @@
             "fix": true
         },
         {
-            "name": "Ferrovie-del-Nord-Barese",
+            "name": "Puglia-Ferrotramviaria",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-sr7f-ferrotramviariaspa~ferroviedelnordbarese"
         },
@@ -226,6 +243,22 @@
             "name": "Sardegna-Trenitalia",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-spn-trenitalia"
+        },
+        {
+            "name": "Sicilia-Catania-AMTS",
+            "type": "http",
+            "url": "https://www.amts.ct.it/GTFS/AMTCT.zip",
+            "license": {
+                "url":"https://www.dati.gov.it/content/italian-open-data-license-v20"
+            }
+        },
+        {
+            "name": "Sicilia-Palermo-AMAT",
+            "type": "http",
+            "url": "https://opendata.comune.palermo.it/js/server/uploads/dataset/gtfs/amat_gtfs.zip",
+            "license": {
+                "spdx-identifier": "CC-BY-4.0"
+            }
         },
         {
             "name": "Toscana-Autolinee-LineeRegionali",
@@ -433,7 +466,9 @@
         {
             "name": "Toscana-MassaCarrara-Urbano",
             "type": "transitland-atlas",
-            "transitland-atlas-id": "f-spz4-urbanomassaecarrara"
+            "transitland-atlas-id": "f-spz4-urbanomassaecarrara",
+            "skip": true,
+            "skip-reason": "Bad Zip File"
         },
         {
             "name": "Toscana-MassaCarrara-Urbano-Carrara",

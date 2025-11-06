@@ -1,0 +1,34 @@
+{
+    "maintainers": [
+        {
+            "name": "Nedžad Beus",
+            "github": "vekejsn"
+        },
+        {
+            "name": "Patrick Steil",
+            "github": "SteilDev"
+        }
+    ],
+    "sources": [
+        {
+            "name": "flixbus",
+            "type": "http",
+            "url": "http://gtfs.gis.flix.tech/gtfs_generic_chile.zip"
+        },
+        {
+            "name": "flixbus",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://rt.flix.baguette.pirnet.si/rt.pb"
+        },
+        {
+            "name": "ChileDTP",
+            "type": "http",
+            "url": "https://www.dtpm.cl/index.php/noticias/gtfs-vigente",
+            "function": "chile_dtp_downloader",
+            "license": {
+                "url": "https://www.dtpm.cl/index.php/homepage/sistema-de-transportes/datos-y-servicios"
+            }
+        }
+    ]
+}

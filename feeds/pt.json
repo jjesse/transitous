@@ -7,6 +7,10 @@
         {
             "name": "Marcus Lundblad",
             "github": "mlundblad"
+        },
+        {
+            "name": "Patrick Steil",
+            "github": "SteilDev"
         }
     ],
     "sources": [
@@ -14,6 +18,9 @@
             "name": "Carris-Metropolitana",
             "type": "http",
             "url": "https://api.carrismetropolitana.pt/gtfs",
+            "license": {
+                "spdx-identifier": "CC-BY-4.0"
+            },
             "fix": true,
             "http-options": {
                 "fetch-interval-days": 1
@@ -22,12 +29,18 @@
         {
             "name": "Carris",
             "type": "mobility-database",
-            "mdb-id": "mdb-1032"
+            "mdb-id": "mdb-1032",
+            "license": {
+                "spdx-identifier": "CC0-1.0"
+            }
         },
         {
             "name": "Metro-Lisboa",
             "type": "http",
-            "url": "https://www.metrolisboa.pt/google_transit/googleTransit.zip"
+            "url": "https://www.metrolisboa.pt/google_transit/googleTransit.zip",
+            "license": {
+                "spdx-identifier": "CC0-1.0"
+            }
         },
         {
             "name": "Cascais-Próxima",
@@ -38,6 +51,12 @@
             "name": "Comboios-de-Portugal(CP)",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-eyc-cp"
+        },
+        {
+            "name": "Comboios-de-Portugal(CP)",
+            "type": "url",
+            "spec": "gtfs-rt",
+            "url": "https://rt.gtfs.baguette.pirnet.si/gtfs-rt/cp/trip_updates.pb"
         },
         {
             "name": "Fergatus",
@@ -124,6 +143,15 @@
             "name": "Lagos-Aonda",
             "type": "transitland-atlas",
             "transitland-atlas-id": "f-ey9-aonda"
+        },
+        {
+            "name": "Metro-Porto",
+            "type": "http",
+            "url": "https://www.metrodoporto.pt/pages/337",
+            "function": "data_metroporto_latest_resource",
+            "license": {
+                "spdx-identifier": "CC0-1.0"
+            }
         }
     ]
 }
